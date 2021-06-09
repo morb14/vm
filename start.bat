@@ -1,0 +1,3 @@
+tasklist /fi "ImageName eq League of Legends.exe" /fo csv 2>NUL | find /I "League of Legends.exe">NUL
+if "%ERRORLEVEL%"=="0" timeout 120 & %0 & exit
+if "%ERRORLEVEL%"=="1" taskkill /f /im "LeagueClient.exe" & taskkill /f /im "LeagueClientUx.exe" & taskkill /f /im "RiotClientServices.exe" & taskkill /f /im "LeagueBot.exe" & timeout 1 >nul & start "" "C:\Riot Games\League of Legends\LeagueClient.exe" & timeout 15 >nul & start "" "C:\Users\morb\Desktop\kevdah\Binaries\leaguebot.lnk" & timeout 300 & %0 & exit
